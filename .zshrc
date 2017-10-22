@@ -9,8 +9,8 @@ export ZSH=/Users/dieter/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="agnoster"
-ZSH_THEME="wezm"
+ZSH_THEME="agnoster"
+#ZSH_THEME="wezm"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -59,6 +59,26 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 alias su="sudo -s"
+# ssh() {
+#	if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
+#		tmux rename-window "$(echo $* | cut -d . -f 1)"
+#		command ssh "$@"
+#		tmux set-window-option automatic-rename "on" 1>/dev/null
+#	else
+#		command ssh "$@"
+#	fi
+#}
+man() {
+	env \
+	LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+	LESS_TERMCAP_md=$(printf "\e[1;31m") \
+	LESS_TERMCAP_me=$(printf "\e[0m") \
+	LESS_TERMCAP_se=$(printf "\e[0m") \
+	LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+	LESS_TERMCAP_ue=$(printf "\e[0m") \
+	LESS_TERMCAP_us=$(printf "\e[1;32m") \
+	man "$@"
+}
 rgrep() {
 	grep -R $1 .
 }
@@ -74,7 +94,7 @@ alias vscode="/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron"
 alias rm="trash"
 alias diff=customdiff
 alias merge=custommerge
-
+alias man=man
 # Environment variables
 source ~/.env
 
