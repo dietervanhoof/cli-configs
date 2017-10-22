@@ -53,7 +53,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(extract osx git docker brew dirhistory encode64 mvn ng npm sudo)
+plugins=(z extract osx git docker brew dirhistory encode64 mvn ng npm sudo)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,9 +97,6 @@ alias merge=custommerge
 alias man=man
 # Environment variables
 source ~/.env
-
-# include Z
-. ~/z.sh
 
 export NVM_DIR="/Users/dieter/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
